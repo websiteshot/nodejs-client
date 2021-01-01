@@ -1,6 +1,6 @@
 {
   "name": "@websiteshot/nodejs-client",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "NodeJS Client for Websiteshot.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
