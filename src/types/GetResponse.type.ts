@@ -1,4 +1,5 @@
 import { ScreenshotParameter } from './ScreenshotParameter.type'
+import { Url } from './Url.type'
 
 export interface GetResponse {
   rootId: string
@@ -11,11 +12,7 @@ export interface JobResult {
   rootId: string
   projectId: string
   uuid: string
-  url: {
-    url: string
-    name: string
-    loadingTime: number
-  }
+  url: Url
   meta: Meta
   screenshotParameter: ScreenshotParameter
   preview: string

@@ -55,7 +55,7 @@ export class WebsiteshotController {
       const result: AxiosResponse = await axios(config)
       return result ? result.data : undefined
     } catch (error) {
-      throw new Error(`Failed to create Screenshot Job: ${error.message}`)
+      throw new Error(`Failed to get Screenshot Jobs: ${error.message}`)
     }
   }
 }
