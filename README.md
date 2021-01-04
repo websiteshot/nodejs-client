@@ -67,3 +67,16 @@ const createRequest: CreateRequest = {
 
 await websiteshotController.create(createRequest)
 ```
+
+Get Screenshot Jobs:
+
+```js
+const config: Config = {
+  projectId: '...',
+  apikey: '...',
+}
+
+const websiteshotController = new WebsiteshotController(config)
+
+const response: GetResponse = await websiteshotController.get(jobId)
+```
