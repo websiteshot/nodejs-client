@@ -11,16 +11,36 @@ export enum Route {
   PROJECTS = 'projects',
   SCREENSHOTS = 'screenshots',
   ROOT = 'root',
+  TEMPLATES = 'templates',
 }
 
 export class WebsiteshotController {
   constructor(private config: Config) {}
 
   public async create(request: CreateRequest): Promise<CreateResponse> {
-    const url = `${BASE_URL}/${Route.API}/${Route.PROJECTS}/${this.config.projectId}`
-    const data = {
-      screenshotParameter: request.screenshotParameter,
-      urls: request.urls,
+    let url
+    let data
+
+    if (request.templateId) {
+      url = `${BASE_URL}/${Route.API}/${Route.PROJECTS}/${this.config.projectId}/${Route.TEMPLATES}/${request.templateId}`
+      data = {
+        scheduledTs: request.scheduledTs,
+        scheduleDescription: request.scheduleDescription,
+      }
+    } else if (request.screenshotParameter && request.urls) {
+      url = `${BASE_URL}/${Route.API}/${Route.PROJECTS}/${this.config.projectId}`
+      data = {
+        screenshotParameter: request.screenshotParameter,
+        urls: request.urls,
+        scheduledTs: request.scheduledTs,
+        scheduleDescription: request.scheduleDescription,
+      }
+    }
+
+    if (!url || !data) {
+      throw new Error(
+        `Mandatory Parameter missing. ScreenshotParameter and URLs or TemplateId must be set.`,
+      )
     }
 
     const config: AxiosRequestConfig = {

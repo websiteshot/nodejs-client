@@ -6,6 +6,7 @@
     "outDir": "./dist",
     "baseUrl": "./src",
     "types": ["node", "jest"],
+    "declaration": true,
     "esModuleInterop": true,
     "plugins": [
       {
