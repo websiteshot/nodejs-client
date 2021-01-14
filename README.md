@@ -26,7 +26,7 @@ npm i @websiteshot/nodejs-client --save
 
 ## Usage
 
-Import the Controller and the needed types:
+### Import Controller and Types
 
 ```js
 import {
@@ -38,7 +38,7 @@ import {
 } from '@websiteshot/nodejs-client'
 ```
 
-Use the Client:
+### Init Client
 
 ```js
 const config: Config = {
@@ -47,7 +47,11 @@ const config: Config = {
 }
 
 const websiteshotController = new WebsiteshotController(config)
+```
 
+### Create Screenshot Job
+
+```js
 const screenshotParameter: ScreenshotParameter = {
   width: 1200,
   height: 720,
@@ -68,7 +72,17 @@ const createRequest: CreateRequest = {
 await websiteshotController.create(createRequest)
 ```
 
-Get Screenshot Jobs:
+### Create Screenshot Job with Template
+
+```js
+const createRequest: CreateRequest = {
+  templateId: '...',
+}
+
+await websiteshotController.create(createRequest)
+```
+
+### Get Screenshot Jobs
 
 ```js
 const config: Config = {
