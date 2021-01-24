@@ -26,6 +26,7 @@ export class WebsiteshotController {
       data = {
         scheduledTs: request.scheduledTs,
         scheduleDescription: request.scheduleDescription,
+        urls: request.urls ? request.urls : undefined,
       }
     } else if (request.screenshotParameter && request.urls) {
       url = `${BASE_URL}/${Route.API}/${Route.PROJECTS}/${this.config.projectId}`
