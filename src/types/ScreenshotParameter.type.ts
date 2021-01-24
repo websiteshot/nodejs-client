@@ -2,6 +2,7 @@ export interface ScreenshotParameter {
   name?: string
   width: number
   height: number
+  tags?: string[]
   fullPage?: boolean
   loginParameter?: LoginParameter
   style?: BrowserFrameStyle
@@ -16,13 +17,20 @@ export enum BrowserFrameStyle {
 
 export interface ImageEffectConfig {
   effect: ImageEffect
-  options?: ShadowOptions | EffectBlurOptions | EffectResizeOptions
+  options?:
+    | ShadowOptions
+    | EffectBlurOptions
+    | EffectResizeOptions
+    | EffectRoundCornersOptions
+    | EffectMarginOptions
 }
 
 export enum ImageEffect {
   RESIZE = 'resize',
   BLUR = 'blur',
   SHADOW = 'shadow',
+  ROUNDCORNERS = 'roundcorners',
+  MARGIN = 'margin',
 }
 
 export interface EffectBlurOptions {
@@ -32,6 +40,14 @@ export interface EffectBlurOptions {
 export interface EffectResizeOptions {
   width?: number
   height?: number
+}
+
+export interface EffectRoundCornersOptions {
+  radius: number
+}
+
+export interface EffectMarginOptions {
+  margin: number
 }
 
 export interface LoginParameter {
