@@ -4,7 +4,7 @@ import { Url } from './Url.type'
 export interface GetResponse {
   rootId: string
   meta: Meta
-  jobs: string[]
+  jobs: JobResult[]
 }
 
 export interface JobResult {
